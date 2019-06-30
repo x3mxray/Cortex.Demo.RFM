@@ -35,16 +35,6 @@
             this.lblUpladFileDesc = new System.Windows.Forms.Label();
             this.txtUploadLog = new System.Windows.Forms.TextBox();
             this.btnUpload = new System.Windows.Forms.Button();
-            this.tabApiTester = new System.Windows.Forms.TabPage();
-            this.txtClientActivityLog = new System.Windows.Forms.TextBox();
-            this.grbClient = new System.Windows.Forms.GroupBox();
-            this.lblClientMoney = new System.Windows.Forms.Label();
-            this.txtClientMoney = new System.Windows.Forms.TextBox();
-            this.chkClientOrder = new System.Windows.Forms.CheckBox();
-            this.lblClientOrdersCount = new System.Windows.Forms.Label();
-            this.numClientOrders = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnAddCustomer = new System.Windows.Forms.Button();
             this.pnlSettings = new System.Windows.Forms.Panel();
             this.grbSettings = new System.Windows.Forms.GroupBox();
             this.btnFileUplad = new System.Windows.Forms.Button();
@@ -55,9 +45,6 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tabAPI.SuspendLayout();
             this.tabLoader.SuspendLayout();
-            this.tabApiTester.SuspendLayout();
-            this.grbClient.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numClientOrders)).BeginInit();
             this.pnlSettings.SuspendLayout();
             this.grbSettings.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +63,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabAPI.Controls.Add(this.tabLoader);
-            this.tabAPI.Controls.Add(this.tabApiTester);
             this.tabAPI.Location = new System.Drawing.Point(12, 102);
             this.tabAPI.Name = "tabAPI";
             this.tabAPI.SelectedIndex = 0;
@@ -129,125 +115,6 @@
             this.btnUpload.Text = "&Upload file";
             this.btnUpload.UseVisualStyleBackColor = true;
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
-            // tabApiTester
-            // 
-            this.tabApiTester.Controls.Add(this.txtClientActivityLog);
-            this.tabApiTester.Controls.Add(this.grbClient);
-            this.tabApiTester.Controls.Add(this.label1);
-            this.tabApiTester.Controls.Add(this.btnAddCustomer);
-            this.tabApiTester.Location = new System.Drawing.Point(4, 22);
-            this.tabApiTester.Name = "tabApiTester";
-            this.tabApiTester.Padding = new System.Windows.Forms.Padding(3);
-            this.tabApiTester.Size = new System.Drawing.Size(652, 297);
-            this.tabApiTester.TabIndex = 1;
-            this.tabApiTester.Text = "New customer";
-            this.tabApiTester.UseVisualStyleBackColor = true;
-            // 
-            // txtClientActivityLog
-            // 
-            this.txtClientActivityLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtClientActivityLog.Location = new System.Drawing.Point(9, 179);
-            this.txtClientActivityLog.Multiline = true;
-            this.txtClientActivityLog.Name = "txtClientActivityLog";
-            this.txtClientActivityLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtClientActivityLog.Size = new System.Drawing.Size(636, 83);
-            this.txtClientActivityLog.TabIndex = 13;
-            // 
-            // grbClient
-            // 
-            this.grbClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbClient.Controls.Add(this.lblClientMoney);
-            this.grbClient.Controls.Add(this.txtClientMoney);
-            this.grbClient.Controls.Add(this.chkClientOrder);
-            this.grbClient.Controls.Add(this.lblClientOrdersCount);
-            this.grbClient.Controls.Add(this.numClientOrders);
-            this.grbClient.Location = new System.Drawing.Point(9, 75);
-            this.grbClient.Name = "grbClient";
-            this.grbClient.Size = new System.Drawing.Size(636, 98);
-            this.grbClient.TabIndex = 12;
-            this.grbClient.TabStop = false;
-            this.grbClient.Text = "Client data";
-            // 
-            // lblClientMoney
-            // 
-            this.lblClientMoney.AutoSize = true;
-            this.lblClientMoney.Location = new System.Drawing.Point(14, 51);
-            this.lblClientMoney.Name = "lblClientMoney";
-            this.lblClientMoney.Size = new System.Drawing.Size(94, 13);
-            this.lblClientMoney.TabIndex = 15;
-            this.lblClientMoney.Text = "Total spent money";
-            // 
-            // txtClientMoney
-            // 
-            this.txtClientMoney.Location = new System.Drawing.Point(114, 48);
-            this.txtClientMoney.MaxLength = 6;
-            this.txtClientMoney.Name = "txtClientMoney";
-            this.txtClientMoney.Size = new System.Drawing.Size(100, 20);
-            this.txtClientMoney.TabIndex = 14;
-            // 
-            // chkClientOrder
-            // 
-            this.chkClientOrder.AutoSize = true;
-            this.chkClientOrder.Location = new System.Drawing.Point(114, 74);
-            this.chkClientOrder.Name = "chkClientOrder";
-            this.chkClientOrder.Size = new System.Drawing.Size(238, 17);
-            this.chkClientOrder.TabIndex = 13;
-            this.chkClientOrder.Text = "Purchases are stretched all the time in history";
-            this.chkClientOrder.UseVisualStyleBackColor = true;
-            // 
-            // lblClientOrdersCount
-            // 
-            this.lblClientOrdersCount.AutoSize = true;
-            this.lblClientOrdersCount.Location = new System.Drawing.Point(43, 24);
-            this.lblClientOrdersCount.Name = "lblClientOrdersCount";
-            this.lblClientOrdersCount.Size = new System.Drawing.Size(63, 13);
-            this.lblClientOrdersCount.TabIndex = 12;
-            this.lblClientOrdersCount.Text = "Order count";
-            // 
-            // numClientOrders
-            // 
-            this.numClientOrders.Location = new System.Drawing.Point(114, 22);
-            this.numClientOrders.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numClientOrders.Name = "numClientOrders";
-            this.numClientOrders.Size = new System.Drawing.Size(43, 20);
-            this.numClientOrders.TabIndex = 11;
-            this.numClientOrders.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(639, 66);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Specify the number of purchases and the maximum amount of money the customer has " +
-    "spent. Click on the checkbox if you want the purchases to be made evenly through" +
-    "out the history.";
-            // 
-            // btnAddCustomer
-            // 
-            this.btnAddCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddCustomer.Location = new System.Drawing.Point(516, 268);
-            this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(130, 23);
-            this.btnAddCustomer.TabIndex = 0;
-            this.btnAddCustomer.Text = "Add new client";
-            this.btnAddCustomer.UseVisualStyleBackColor = true;
             // 
             // pnlSettings
             // 
@@ -343,11 +210,6 @@
             this.tabAPI.ResumeLayout(false);
             this.tabLoader.ResumeLayout(false);
             this.tabLoader.PerformLayout();
-            this.tabApiTester.ResumeLayout(false);
-            this.tabApiTester.PerformLayout();
-            this.grbClient.ResumeLayout(false);
-            this.grbClient.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numClientOrders)).EndInit();
             this.pnlSettings.ResumeLayout(false);
             this.grbSettings.ResumeLayout(false);
             this.grbSettings.PerformLayout();
@@ -361,7 +223,6 @@
         private System.Windows.Forms.StatusStrip statusExplorer;
         private System.Windows.Forms.TabControl tabAPI;
         private System.Windows.Forms.TabPage tabLoader;
-        private System.Windows.Forms.TabPage tabApiTester;
         private System.Windows.Forms.Panel pnlSettings;
         private System.Windows.Forms.GroupBox grbSettings;
         private System.Windows.Forms.Label lblFileUpload;
@@ -373,15 +234,6 @@
         private System.Windows.Forms.TextBox txtUploadLog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Label lblUpladFileDesc;
-        private System.Windows.Forms.Button btnAddCustomer;
-        private System.Windows.Forms.TextBox txtClientActivityLog;
-        private System.Windows.Forms.GroupBox grbClient;
-        private System.Windows.Forms.Label lblClientMoney;
-        private System.Windows.Forms.TextBox txtClientMoney;
-        private System.Windows.Forms.CheckBox chkClientOrder;
-        private System.Windows.Forms.Label lblClientOrdersCount;
-        private System.Windows.Forms.NumericUpDown numClientOrders;
-        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -72,12 +72,12 @@ namespace Demo.Project.DemoDataExplorer
                         var client = new WebClient();
 
                         var uri = new Uri(txtApi.Text.CombineUrl("/api/contactapi/UploadClientsHistory"));
-                        var data = System.IO.File.ReadAllBytes(txtFileUpload.Text);
+                        var data = File.ReadAllBytes(txtFileUpload.Text);
 
                         _percentageUploaded = 0;
 
-                        client.UploadDataCompleted += new UploadDataCompletedEventHandler(UploadDataCallback);
-                        client.UploadProgressChanged += new UploadProgressChangedEventHandler(UploadProgressChanged);
+                        client.UploadDataCompleted += UploadDataCallback;
+                        client.UploadProgressChanged += UploadProgressChanged;
                         client.UploadDataAsync(uri, "POST", data);
 
                     }){ IsBackground = true };
@@ -156,35 +156,15 @@ namespace Demo.Project.DemoDataExplorer
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            switch (apiMethod)
-            {
-                case ApiMethod.UploadFile:
-                {
-                    if (string.IsNullOrEmpty(txtFileUpload.Text) || !File.Exists(txtFileUpload.Text))
-                        stringBuilder.AppendLine("Excel file not found");
+            if (string.IsNullOrEmpty(txtFileUpload.Text) || !File.Exists(txtFileUpload.Text))
+                stringBuilder.AppendLine("Excel file not found");
 
-                    if (string.IsNullOrEmpty(txtApi.Text))
-                        stringBuilder.AppendLine("Api url is empty");
-                }
-                break;
+            if (string.IsNullOrEmpty(txtApi.Text))
+                stringBuilder.AppendLine("Api url is empty");
 
-                case ApiMethod.AddCustomer:
-                {
-                    if (string.IsNullOrEmpty(txtApi.Text))
-                        stringBuilder.AppendLine("Api url is empty");
-                }
-                break;
-            }
-
-            if (stringBuilder.Length > 0)
-            {
-                MessageBox.Show(stringBuilder.ToString(), "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            if (stringBuilder.Length <= 0) return true;
+            MessageBox.Show(stringBuilder.ToString(), "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
         }
 
         private void ClearLogs()
@@ -221,45 +201,6 @@ namespace Demo.Project.DemoDataExplorer
         private void txtFileUpload_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ValidateValues(ApiMethod.UploadFile))
-                {
-                    ClearLogs();
-                    LockInteraface();
-
-                    AddUploadLog("Upload started", true);
-                    AddUploadLog("Please wait. It may take quite a long time (5 ~ 15 minutes)...");
-
-                    if (th != null && th.IsAlive)
-                        th.Abort();
-
-                    th = new Thread(() =>
-                    {
-                        var client = new WebClient();
-
-                        var uri = new Uri(txtApi.Text.CombineUrl("/api/contactapi/uploadproducts"));
-                        var data = System.IO.File.ReadAllBytes(txtFileUpload.Text);
-
-                        _percentageUploaded = 0;
-
-                        client.UploadDataCompleted += new UploadDataCompletedEventHandler(UploadDataCallback);
-                        client.UploadProgressChanged += new UploadProgressChangedEventHandler(UploadProgressChanged);
-                        client.UploadDataAsync(uri, "POST", data);
-
-                    })
-                    { IsBackground = true };
-                    th.Start();
-                }
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }
