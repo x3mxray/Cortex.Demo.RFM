@@ -1,0 +1,30 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false, 
+    "anonymousAuthentication": true, 
+    "iisExpress": {
+      "applicationUrl": "http://localhost:56399",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "api/rfm",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "MLServer": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "api/rfm",
+      "applicationUrl": "http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

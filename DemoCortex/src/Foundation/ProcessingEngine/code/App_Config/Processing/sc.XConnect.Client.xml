@@ -1,0 +1,54 @@
+﻿<Settings>
+    <Sitecore>
+        <XConnect.Client>
+            <EnableDataExtraction>true</EnableDataExtraction>
+            <Services>
+                <IConnectionStringResolver>
+                    <Type>Sitecore.XConnect.Client.Services.Configuration.ConnectionStringResolver, Sitecore.XConnect.Client.Services.Configuration</Type>
+                    <As>Sitecore.XConnect.Client.Services.Configuration.IConnectionStringResolver, Sitecore.XConnect.Client.Services.Configuration</As>
+                    <LifeTime>Transient</LifeTime>
+                </IConnectionStringResolver>
+                <IApplicationSettingResolver>
+                    <Type>Sitecore.XConnect.Client.Services.Configuration.ApplicationSettingResolver, Sitecore.XConnect.Client.Services.Configuration</Type>
+                    <As>Sitecore.XConnect.Client.Services.Configuration.IApplicationSettingResolver, Sitecore.XConnect.Client.Services.Configuration</As>
+                    <LifeTime>Transient</LifeTime>
+                </IApplicationSettingResolver>
+                <!-- xConnect client configuration. -->
+                <Client.Configuration>
+                    <Type>Sitecore.XConnect.Client.Services.Configuration.XConnectModelConfigurator, Sitecore.XConnect.Client.Services.Configuration</Type>
+                    <As>Sitecore.XConnect.Client.Services.Configuration.IXConnectModelConfigurator, Sitecore.XConnect.Client.Services.Configuration</As>
+                    <LifeTime>Transient</LifeTime>
+                    <Options>
+                        <!-- The xDB models to use with the xConnect client configuration. -->
+                        <Models>
+                            <DefaultModel>
+                                <TypeName>Sitecore.XConnect.Collection.Model.CollectionModel, Sitecore.XConnect.Collection.Model</TypeName>
+                                <PropertyName>Model</PropertyName>
+                            </DefaultModel>
+							              <CustomModel>
+                                <TypeName>Demo.Foundation.ProcessingEngine.Models.XConnect.XdbPurchaseModel, Demo.Foundation.ProcessingEngine</TypeName>
+                                <PropertyName>Model</PropertyName>
+                            </CustomModel>
+							              <ContactModel>
+                                <TypeName>Demo.Foundation.ProcessingEngine.Models.XConnect.XdbPurchaseContactModel, Demo.Foundation.ProcessingEngine</TypeName>
+                                <PropertyName>Model</PropertyName>
+                            </ContactModel>
+                        </Models>
+                    </Options>
+                </Client.Configuration>
+                <!-- xConnect read/write client. -->
+                <Client>
+                    <Type>Sitecore.XConnect.Client.XConnectClient, Sitecore.XConnect.Client</Type>
+                    <As>Sitecore.XConnect.IXdbContext, Sitecore.XConnect</As>
+                    <LifeTime>Scoped</LifeTime>
+                </Client>
+                <!-- xConnect read only client. -->
+                <ReadOnlyXdbContext>
+                    <Type>Sitecore.XConnect.ReadOnlyXdbContext, Sitecore.XConnect</Type>
+                    <As>Sitecore.XConnect.IReadOnlyXdbContext, Sitecore.XConnect</As>
+                    <LifeTime>Scoped</LifeTime>
+                </ReadOnlyXdbContext>
+            </Services>
+        </XConnect.Client>
+    </Sitecore>
+</Settings>

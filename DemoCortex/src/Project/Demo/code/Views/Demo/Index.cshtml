@@ -1,0 +1,58 @@
+﻿@model Demo.Project.Demo.Controllers.CreateContactModel
+@using System;
+@using System.Linq;
+@using Demo.Foundation.ProcessingEngine.Facets;
+@using Demo.Foundation.ProcessingEngine.Models;
+@using Sitecore.Analytics;
+@using Sitecore.Analytics.XConnect.Facets;
+@using Sitecore.Analytics;
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+@{
+    if (!Tracker.Current.IsActive || Tracker.Current.Contact == null || Tracker.Current.Contact.IsNew)
+    {
+        <h1>I`m anonymous</h1>
+    }
+    else
+    {
+        var xConnectFacets = Tracker.Current.Contact.GetFacet<IXConnectFacets>("XConnectFacets");
+        if (xConnectFacets!=null && xConnectFacets.Facets != null && xConnectFacets.Facets.ContainsKey(RfmContactFacet.DefaultFacetKey))
+        {
+            var facet = xConnectFacets.Facets[RfmContactFacet.DefaultFacetKey] as RfmContactFacet;
+            if (facet != null)
+            {
+                <h1>My RFM is: @facet.R @facet.F @facet.M </h1>
+                <h2>My cluster is: @facet.Cluster</h2>
+            }
+        }
+    }
+
+
+
+
+
+    }
+
+@using (Html.BeginForm("IdentifyByEmail", "Demo", FormMethod.Post, new {@class= "form-inline", style= "width:auto;float: left;" }))
+{
+
+    <div class="form-group mb-2">
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+  
+    <button type="submit" class="btn btn-primary  mb-2" style="margin-left:10px">Identify</button>
+}
+
+<br />
+@using (Html.BeginForm("EndAll", "Demo", FormMethod.Post, new { @class = "form-inline", style = "margin-top: -25px; padding-left: 10px;" }))
+{
+
+    <button class="btn btn-primary" type="submit">End Session</button>
+}

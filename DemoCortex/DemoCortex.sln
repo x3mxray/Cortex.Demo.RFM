@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{3EC36DE1-6591-4520-AD93-CA11025C2900}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{5C1562B3-A0B5-43E8-BAE0-395D4ACCB0E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{70385333-54AC-408F-9B81-312353E5BB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Project.Demo", "src\Project\Demo\code\Demo.Project.Demo.csproj", "{7054E548-19A8-42D9-90FE-C64A07E4450E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Foundation.ProcessingEngine", "src\Foundation\ProcessingEngine\code\Demo.Foundation.ProcessingEngine.csproj", "{0D1A5FF4-E76F-48D3-8211-92085D45E2CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProcessingEngine", "ProcessingEngine", "{6EE7A50F-D844-4DA0-AD8D-CD92037739AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XdbModelBuilder", "XdbModelBuilder", "{E8186B9C-7BCC-4C6B-A2C3-FFC65860117B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XdbModelBuilder", "src\Foundation\XdbModelBuilder\XdbModelBuilder.csproj", "{212B677A-6AE2-4FDE-AF52-F7D4C5E2CF14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Project.DemoDataExplorer", "src\Project\DemoDataExplorer\code\Demo.Project.DemoDataExplorer.csproj", "{E3186587-4EA8-493F-AB16-30C2BC5207A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DemoDataExplorer", "DemoDataExplorer", "{DE2E3C02-035D-4C2B-A1D1-694AAE79F14B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7054E548-19A8-42D9-90FE-C64A07E4450E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7054E548-19A8-42D9-90FE-C64A07E4450E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7054E548-19A8-42D9-90FE-C64A07E4450E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7054E548-19A8-42D9-90FE-C64A07E4450E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D1A5FF4-E76F-48D3-8211-92085D45E2CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1A5FF4-E76F-48D3-8211-92085D45E2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1A5FF4-E76F-48D3-8211-92085D45E2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1A5FF4-E76F-48D3-8211-92085D45E2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{212B677A-6AE2-4FDE-AF52-F7D4C5E2CF14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212B677A-6AE2-4FDE-AF52-F7D4C5E2CF14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212B677A-6AE2-4FDE-AF52-F7D4C5E2CF14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{212B677A-6AE2-4FDE-AF52-F7D4C5E2CF14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3186587-4EA8-493F-AB16-30C2BC5207A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3186587-4EA8-493F-AB16-30C2BC5207A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3186587-4EA8-493F-AB16-30C2BC5207A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3186587-4EA8-493F-AB16-30C2BC5207A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70385333-54AC-408F-9B81-312353E5BB5C} = {5C1562B3-A0B5-43E8-BAE0-395D4ACCB0E0}
+		{7054E548-19A8-42D9-90FE-C64A07E4450E} = {70385333-54AC-408F-9B81-312353E5BB5C}
+		{0D1A5FF4-E76F-48D3-8211-92085D45E2CE} = {6EE7A50F-D844-4DA0-AD8D-CD92037739AB}
+		{6EE7A50F-D844-4DA0-AD8D-CD92037739AB} = {3EC36DE1-6591-4520-AD93-CA11025C2900}
+		{E8186B9C-7BCC-4C6B-A2C3-FFC65860117B} = {3EC36DE1-6591-4520-AD93-CA11025C2900}
+		{212B677A-6AE2-4FDE-AF52-F7D4C5E2CF14} = {E8186B9C-7BCC-4C6B-A2C3-FFC65860117B}
+		{E3186587-4EA8-493F-AB16-30C2BC5207A6} = {DE2E3C02-035D-4C2B-A1D1-694AAE79F14B}
+		{DE2E3C02-035D-4C2B-A1D1-694AAE79F14B} = {5C1562B3-A0B5-43E8-BAE0-395D4ACCB0E0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
+		SolutionGuid = {9C7B85EA-F484-476C-8A0C-8E6632EEA943}
+	EndGlobalSection
+EndGlobal
