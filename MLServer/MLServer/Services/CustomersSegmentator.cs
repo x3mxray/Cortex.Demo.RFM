@@ -5,7 +5,6 @@ using System.Linq;
 using Microsoft.Data.DataView;
 using Microsoft.ML;
 using Microsoft.ML.Data;
-using MLServer.Extensions;
 using MLServer.Helpers;
 using MLServer.Models;
 
@@ -15,38 +14,11 @@ namespace MLServer.Services
     {
         private static MLContext _mlContext;
         private static string TrainedModelFile => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.model");
-        private static string TrainedModelFileCountry => Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data2.model");
         private IDataView _testingDataView;
         private static ITransformer _transformer;
-        private static ITransformer _transformerCountry;
-        private static List<ProductStats> _stats;
-        private static List<CountryStats> _statsCountry;
 
-        private static List<string> _countries;
         private int RfmMaxForTests = 3;
 
-        private static List<ProductStats> Stats
-        {
-            get
-            {
-                return _stats;
-            }
-            set
-            {
-                _stats = value;
-            }
-        }
-        private static List<CountryStats> StatsCountry
-        {
-            get
-            {
-                return _statsCountry;
-            }
-            set
-            {
-                _statsCountry = value;
-            }
-        }
         private static ITransformer TrainModel
         {
             get
@@ -60,19 +32,7 @@ namespace MLServer.Services
                 SaveModel(_transformer);
             }
         }
-        private static ITransformer TrainModelCountry
-        {
-            get
-            {
-                if (_transformerCountry != null) return _transformerCountry;
-                return LoadModel(TrainedModelFileCountry);
-            }
-            set
-            {
-                _transformerCountry = value;
-                SaveModel(_transformerCountry, TrainedModelFileCountry);
-            }
-        }
+     
         public ClusteringMetrics Train(List<Rfm> list)
         {
             _mlContext = new MLContext(6, 1);
@@ -97,19 +57,9 @@ namespace MLServer.Services
 
         public ClusteringMetrics Evaluate(ITransformer model)
         {
-            Console.WriteLine("=============== Evaluating Model with Test data===============");
-
             var predictions = model.Transform(_testingDataView);
 
             var metrics = _mlContext.Clustering.Evaluate(predictions, score: "Score", features: "Features");
-
-            Console.WriteLine();
-            Console.WriteLine("Model quality metrics evaluation");
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine($"AvgMinScore: {metrics.AvgMinScore:P2}");
-            Console.WriteLine($"Dbi: {metrics.Dbi:P2}");
-            Console.WriteLine($"Nmi: {metrics.Nmi:P2}");
-            Console.WriteLine("=============== End of model evaluation ===============");
 
             TrainModel = model;
 
@@ -138,6 +88,7 @@ namespace MLServer.Services
                 }
             }
 
+            // save RFM cluster matching in csv
             var fileService = new FileService();
             fileService.ExportToCsv(tests);
 
@@ -178,94 +129,5 @@ namespace MLServer.Services
             }
         }
 
-
-        public void TrainForecast(List<ProductStats> list)
-        {
-            Stats = list;
-            _mlContext = new MLContext(1);
-            var trainingDataView = _mlContext.Data.LoadFromEnumerable(list);
-
-            var trainer = _mlContext.Regression.Trainers.FastTreeTweedie(labelColumnName: "Label", featureColumnName: "Features");
-            var trainingPipeline = _mlContext.Transforms
-                .Concatenate(outputColumnName: "NumFeatures", 
-                nameof(ProductStats.Year),
-                nameof(ProductStats.Month),
-                nameof(ProductStats.Units),
-                nameof(ProductStats.Avg),
-                nameof(ProductStats.Count),
-                //nameof(ProductStats.Max), nameof(ProductStats.Min),
-                nameof(ProductStats.Prev))
-                .Append(_mlContext.Transforms.Categorical.OneHotEncoding(outputColumnName: "CatFeatures", inputColumnName: nameof(ProductStats.ProductId)))
-                .Append(_mlContext.Transforms.Concatenate(outputColumnName: "Features", "NumFeatures", "CatFeatures"))
-                .Append(_mlContext.Transforms.CopyColumns(outputColumnName: "Label", inputColumnName: nameof(ProductStats.Next)))
-                .Append(trainer);
-
-            var crossValidationResults = _mlContext.Regression.CrossValidate(data: trainingDataView, estimator: trainingPipeline, numFolds: 6, labelColumn: "Label");
-            var model = trainingPipeline.Fit(trainingDataView);
-
-            TrainModel = model;
-
-            //TestForecastPrediction();
-        }
-
-        public static List<ProductStats> ProductHistory(string productId)
-        {
-            return Stats.Where(x => x.ProductId == productId).OrderBy(x => x.Year).ThenBy(x => x.Month).ToList();
-        }
-        public static float ProductForecast(ProductStats data)
-        {
-            var predictionEngine = _mlContext.Model.CreatePredictionEngine<ProductStats, ProductUnitPrediction>(TrainModel);
-
-            ProductUnitPrediction prediction = predictionEngine.Predict(data);
-            return prediction.Score;
-        }
-
-        public void TrainForecastCountry(List<CountryStats> list)
-        {
-            StatsCountry = list;
-            _countries = list.Select(x => x.Country).Distinct().ToList();
-
-            _mlContext = new MLContext(1);
-            var trainingDataView = _mlContext.Data.LoadFromEnumerable(list);
-
-            var trainer = _mlContext.Regression.Trainers.FastTreeTweedie(labelColumnName: "Label", featureColumnName: "Features");
-            var trainingPipeline = _mlContext.Transforms
-                .Concatenate(outputColumnName: "NumFeatures",
-                nameof(CountryStats.Year),
-                nameof(CountryStats.Month),
-                nameof(CountryStats.Units),
-                nameof(CountryStats.Avg),
-                nameof(CountryStats.Count),
-                //nameof(ProductStats.Max), nameof(ProductStats.Min),
-                nameof(CountryStats.Prev))
-                .Append(_mlContext.Transforms.Categorical.OneHotEncoding(outputColumnName: "CatFeatures", inputColumnName: nameof(CountryStats.Country)))
-                .Append(_mlContext.Transforms.Concatenate(outputColumnName: "Features", "NumFeatures", "CatFeatures"))
-                .Append(_mlContext.Transforms.CopyColumns(outputColumnName: "Label", inputColumnName: nameof(CountryStats.Next)))
-                .Append(trainer);
-
-            var crossValidationResults = _mlContext.Regression.CrossValidate(data: trainingDataView, estimator: trainingPipeline, numFolds: 6, labelColumn: "Label");
-            var model = trainingPipeline.Fit(trainingDataView);
-
-            TrainModelCountry = model;
-
-            //TestForecastPrediction();
-        }
-
-        public static List<CountryStats> CountryHistory(string country)
-        {
-            return StatsCountry.Where(x => x.Country == country).OrderBy(x => x.Year).ThenBy(x => x.Month).ToList();
-        }
-        public static float CountryForecast(CountryStats data)
-        {
-            var predictionEngine = _mlContext.Model.CreatePredictionEngine<CountryStats, ProductUnitPrediction>(TrainModelCountry);
-
-            ProductUnitPrediction prediction = predictionEngine.Predict(data);
-            return prediction.Score;
-        }
-
-        public static List<string> GetCountries()
-        {
-            return _countries;
-        }
     }
 }

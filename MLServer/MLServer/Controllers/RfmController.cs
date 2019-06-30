@@ -10,7 +10,7 @@ namespace MLServer.Controllers
     [ApiController]
     public class RfmController : ControllerBase
     {
-       
+
         [HttpGet("test")]
         public bool Test()
         {
@@ -37,61 +37,5 @@ namespace MLServer.Controllers
             return segmentator.Predict(data);
         }
 
-
-        [HttpPost("trainforecast")]
-        public bool TrainForecast([FromBody] List<ProductStats> data)
-        {
-            if (data != null && data.Any())
-            {
-                var segmentator = new CustomersSegmentator();
-                segmentator.TrainForecast(data);
-                return true;
-            }
-
-            return false;
-        }
-
-        [HttpPost("productstats")]
-        public List<ProductStats> ProductStats(string productId)
-        {
-            return CustomersSegmentator.ProductHistory(productId);
-        }
-
-        [HttpPost("productforecast")]
-        public float ProductForecast(ProductStats data)
-        {
-            return CustomersSegmentator.ProductForecast(data);
-        }
-
-        [HttpPost("trainforecastcountry")]
-        public bool TrainForecastCountry([FromBody] List<CountryStats> data)
-        {
-            if (data != null && data.Any())
-            {
-                var segmentator = new CustomersSegmentator();
-                segmentator.TrainForecastCountry(data);
-                return true;
-            }
-
-            return false;
-        }
-
-        [HttpPost("countrystats")]
-        public List<CountryStats> CountryStats(string productId)
-        {
-            return CustomersSegmentator.CountryHistory(productId);
-        }
-
-        [HttpPost("countryforecast")]
-        public float CountryForecast(CountryStats data)
-        {
-            return CustomersSegmentator.CountryForecast(data);
-        }
-
-        [HttpPost("getcountries")]
-        public List<string> GetCountries()
-        {
-            return CustomersSegmentator.GetCountries();
-        }
     }
 }
