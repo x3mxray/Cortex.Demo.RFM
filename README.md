@@ -13,7 +13,7 @@ Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://githu
 # How to populate xConnect with testing data #
 * Build solution.
 * Run Demo.Project.DemoDataExplorer.exe from project Demo.Project.DemoDataExplorer.
-[Data Explorer](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/DataExplorer.jpg)
+![Data Explorer](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/DataExplorer.jpg)
 * Copy your sitecore website root url to "API address"
 * Click "Browse" and select [Online Retail.xlsx ~500k records](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/Online_Retail.xlsx)
 * Click "Upload file". Wait for finishing uploading process (in takes ~10-15 min). During process you can see logs in sitecore instance and new contacts appearance in Experience Profile:
