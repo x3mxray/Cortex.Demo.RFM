@@ -1,7 +1,7 @@
-#Sitecore Cortex and Machine Learning Demo
+# Sitecore Cortex and Machine Learning Demo
 Clustering contacts by RFM values.
 Example of usage Sitecore Cortex with ML.Net.
-
+[Full overview](https://www.brimit.com/blog/dive-sitecore-cortex-machine-learning-introduction)
 
 # How to Deploy #
 
