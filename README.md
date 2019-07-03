@@ -4,7 +4,7 @@ Dive into Sitecore Cortex and Machine Learning - Clustering contacts by RFM valu
 # How to Deploy #
 
 ## Sitecore
-Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/RFM Demo-1.0 (sitecore package).zip)
+Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/RFM_Demo-1.0_(sitecore_package).zip)
 
 ## xConnect and jobs
 * Copy folder [xconnect](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/install/xconnect) to your xConnect instance
@@ -13,16 +13,16 @@ Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://githu
 # How to populate xConnect with testing data #
 * Build solution.
 * Run Demo.Project.DemoDataExplorer.exe from project Demo.Project.DemoDataExplorer.
-![Data Explorer](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/Data Explorer.jpg)
+[Data Explorer](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/DataExplorer.jpg)
 * Copy your sitecore website root url to "API address"
-* Click "Browse" and select [Online Retail.xlsx ~500k records](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/Online Retail.xlsx)
+* Click "Browse" and select [Online Retail.xlsx ~500k records](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/Online_Retail.xlsx)
 * Click "Upload file". Wait for finishing uploading process (in takes ~10-15 min). During process you can see logs in sitecore instance and new contacts appearance in Experience Profile:
 `INFO  Excel import: 272 from 4339: CustomerID=15332
 
 # How to run ML server #
 * Run [MLServer solution](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/MLServer) in IIS Express (or install it as IIS application)
 * Make sure that it is accessible with requestiong http://localhost:56399/api/rfm/test
-* If you change localhost url to your own, make corresponding change in [Processing Engine -> sc.Processing.Services.MLNet.xml] (https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/xconnect/App_Data/jobs/continuous/ProcessingEngine/App_Data/Config/Sitecore/Demo/sc.Processing.Services.MLNet.xml)
+* If you change localhost url to your own, make corresponding change in [Processing Engine -> sc.Processing.Services.MLNet.xml](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/xconnect/App_Data/jobs/continuous/ProcessingEngine/App_Data/Config/Sitecore/Demo/sc.Processing.Services.MLNet.xml)
 
 # How to run Cortex tasks #
 - POST request to http://{sitecoreInstance.url}/api/contactapi/RegisterTasks
