@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Demo.Foundation.ProcessingEngine.Models;
 using Demo.Foundation.ProcessingEngine.Services;
 using Sitecore.Analytics;
+using Sitecore.Web;
 
 namespace Demo.Project.Demo.Controllers
 {
@@ -37,19 +38,20 @@ namespace Demo.Project.Demo.Controllers
             return created;
         }
 
-        public void EndAll(int clear = 0)
+        public ActionResult EndAll(int clear = 0)
         {
             if (Tracker.Current != null)
             {
                 Tracker.Current.EndVisit(clear != 0);
             }
             HttpContext.Session.Abandon();
+            return Redirect("/demo");
         }
 
-        public Guid IdentifyByEmail(string email)
+        public ActionResult IdentifyByEmail(string email)
         {
             Tracker.Current.Session.IdentifyAs(XConnectService.IdentificationSourceEmail, email);
-            return Tracker.Current.Contact.ContactId;
+            return Redirect("/demo");
         }
 
         public void RegisterTestPurchase(string email)

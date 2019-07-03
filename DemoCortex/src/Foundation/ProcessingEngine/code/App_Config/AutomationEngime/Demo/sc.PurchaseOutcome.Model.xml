@@ -1,0 +1,29 @@
+﻿<Settings>
+  <!--
+   copy   XConnect Client configuration to 
+   1) xconnect\Add_Data\Config\Sitecore\XConnect
+   2) xconnect\Add_Data\jobs\continuous\AutomationEngine\App_Data\Config\sitecore\
+  -->
+  <Sitecore>
+    <XConnect>
+      <Services>
+        <!-- XConnect client configuration -->
+        <XConnect.Client.Configuration>
+          <Options>
+            <Models>
+              <CustomModel>
+                <TypeName>Demo.Foundation.ProcessingEngine.Models.XConnect.XdbPurchaseModel, Demo.Foundation.ProcessingEngine</TypeName>
+                <PropertyName>Model</PropertyName>
+              </CustomModel>
+              <ContactModel>
+                <TypeName>Demo.Foundation.ProcessingEngine.Models.XConnect.XdbPurchaseContactModel, Demo.Foundation.ProcessingEngine</TypeName>
+                <PropertyName>Model</PropertyName>
+              </ContactModel>
+            </Models>
+          </Options>
+        </XConnect.Client.Configuration>
+       
+      </Services>
+    </XConnect>
+  </Sitecore>
+</Settings>

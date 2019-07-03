@@ -4,7 +4,6 @@ using Demo.Foundation.ProcessingEngine.Models;
 using Sitecore.Analytics;
 using Sitecore.Analytics.XConnect.Facets;
 using Sitecore.Data;
-using Sitecore.Data.Items;
 using Sitecore.Rules;
 using Sitecore.Rules.Conditions;
 
@@ -19,12 +18,9 @@ namespace Demo.Foundation.ProcessingEngine.Conditionals
             if (!Tracker.Current.IsActive || Tracker.Current.Contact == null) return false;
 
             var xConnectFacets = Tracker.Current.Contact.GetFacet<IXConnectFacets>("XConnectFacets");
-            if (xConnectFacets == null || xConnectFacets.Facets == null ||
-                !xConnectFacets.Facets.ContainsKey(RfmContactFacet.DefaultFacetKey)) return false;
+            if (xConnectFacets?.Facets == null || !xConnectFacets.Facets.ContainsKey(RfmContactFacet.DefaultFacetKey)) return false;
 
-            RfmContactFacet facet = xConnectFacets.Facets[RfmContactFacet.DefaultFacetKey] as RfmContactFacet;
-
-            if (facet == null) return false;
+            if (!(xConnectFacets.Facets[RfmContactFacet.DefaultFacetKey] is RfmContactFacet facet)) return false;
 
             var rfm = GetRfm();
             if (rfm == null) return false;
@@ -34,15 +30,14 @@ namespace Demo.Foundation.ProcessingEngine.Conditionals
 
         public CustomerBusinessValue GetRfm()
         {
-            int r, f, m;
-            Item rfmPattern = Database.GetDatabase("master").GetItem(new ID(RfmId));
+            var rfmPattern = Database.GetDatabase("master").GetItem(new ID(RfmId));
             if (rfmPattern == null) return null;
 
-            if (int.TryParse(rfmPattern["R"], out r))
+            if (int.TryParse(rfmPattern["R"], out var r))
             {
-                if (int.TryParse(rfmPattern["F"], out f))
+                if (int.TryParse(rfmPattern["F"], out var f))
                 {
-                    if (int.TryParse(rfmPattern["M"], out m))
+                    if (int.TryParse(rfmPattern["M"], out var m))
                     {
                         return new CustomerBusinessValue
                         {

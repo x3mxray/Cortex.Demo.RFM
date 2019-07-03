@@ -119,20 +119,23 @@
     <Content Include="App_Config\Include\Foundation\Foundation.ProcessingEngine.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Config\Processing\sc.Processing.Engine.DemoAgents.xml">
+    <Content Include="App_Config\Processing\Demo\sc.XConnect.Client.DemoModels.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Config\Processing\sc.Processing.Engine.MLNet.Workers.xml">
+    <Content Include="App_Config\Processing\Demo\sc.Processing.Engine.DemoAgents.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Config\Processing\sc.Processing.Services.MLNet.xml">
+    <Content Include="App_Config\Processing\Demo\sc.Processing.Engine.MLNet.Workers.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Config\Processing\sc.PurchaseInteractionModel.Models.xml">
+    <Content Include="App_Config\Processing\Demo\sc.Processing.Services.MLNet.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Config\AutomationEngime\sc.PurchaseOutcome.Model.xml" />
-    <Content Include="App_Config\AutomationEngime\sc.XConnect.Segmentation.Cluster.Model.xml" />
+    <Content Include="App_Config\Processing\Demo\sc.PurchaseInteractionModel.Models.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Config\AutomationEngime\Demo\sc.PurchaseOutcome.Model.xml" />
+    <Content Include="App_Config\AutomationEngime\Demo\sc.XConnect.Segmentation.Cluster.Model.xml" />
     <Content Include="App_Config\Processing\sc.XConnect.Client.xml">
       <SubType>Designer</SubType>
     </Content>

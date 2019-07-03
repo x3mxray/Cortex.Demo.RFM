@@ -1,0 +1,22 @@
+﻿<Settings>
+  <Sitecore>
+    <XConnect>
+      <Services>
+        <DescriptorLocator>
+          <Options>
+            <PredicateDescriptors>
+              <ClusterMatches>
+                <id>{55AFB80F-3818-43AC-9A76-D51DFCAF7429}</id>
+                <type>Demo.Foundation.ProcessingEngine.Conditionals.ClusterMatch, Demo.Foundation.ProcessingEngine</type>
+              </ClusterMatches>
+              <RfmMatches>
+                <id>{29E58047-3011-4B70-B9D9-8135608E958D}</id>
+                <type>Demo.Foundation.ProcessingEngine.Conditionals.RfmMatch, Demo.Foundation.ProcessingEngine</type>
+              </RfmMatches>
+            </PredicateDescriptors>
+          </Options>
+        </DescriptorLocator>
+      </Services>
+    </XConnect>
+  </Sitecore>
+</Settings>
