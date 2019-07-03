@@ -1,5 +1,5 @@
-# Cortex.Demo.RFM
-Dive into Sitecore Cortex and Machine Learning - Clustering contacts by RFM values
+# Dive into Sitecore Cortex and Machine Learning
+## Clustering contacts by RFM values
 
 # How to Deploy #
 
@@ -17,8 +17,9 @@ Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://githu
 * Copy your sitecore website root url to "API address"
 * Click "Browse" and select [Online Retail.xlsx ~500k records](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/Online_Retail.xlsx)
 * Click "Upload file". Wait for finishing uploading process (in takes ~10-15 min). During process you can see logs in sitecore instance and new contacts appearance in Experience Profile:
-
-`INFO  Excel import: 272 from 4339: CustomerID=15332
+```
+INFO  Excel import: 272 from 4339: CustomerID=15332
+```
 
 # How to run ML server #
 * Run [MLServer solution](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/MLServer) in IIS Express (or install it as IIS application)
@@ -26,9 +27,9 @@ Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://githu
 * If you change localhost url to your own, make corresponding change in [Processing Engine -> sc.Processing.Services.MLNet.xml](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/xconnect/App_Data/jobs/continuous/ProcessingEngine/App_Data/Config/Sitecore/Demo/sc.Processing.Services.MLNet.xml)
 
 # How to run Cortex tasks #
-- POST request to http://{sitecoreInstance.url}/api/contactapi/RegisterTasks
-- Or change processing agent sleep period in [Processing Engine -> sc.Processing.Engine.DemoAgents.xml] (https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/xconnect/App_Data/jobs/continuous/ProcessingEngine/App_Data/Config/Sitecore/Demo/sc.Processing.Engine.DemoAgents.xml)
-- All processes execution take ~10-15 minutes (~500k records). During process you can see logs in Processing Engine job:
+- POST request to http://{sitecoreInstance.url}/api/contactapi/RegisterTasks with POSTMAN
+- Or change processing agent sleep period in [Processing Engine -> sc.Processing.Engine.DemoAgents.xml](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/xconnect/App_Data/jobs/continuous/ProcessingEngine/App_Data/Config/Sitecore/Demo/sc.Processing.Engine.DemoAgents.xml)
+- All processes execution takes ~10-15 minutes (~500k records). During process you can see logs in Processing Engine job:
 ```
 [Information] Registered Distributed Processing Task, TaskId: 19260a83-e180-457a-9bdb-b9210f6e757f, Worker: Sitecore.Processing.Engine.ML.Workers.ProjectionWorker`1[[Sitecore.XConnect.Interaction, Sitecore.XConnect, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null]], Sitecore.Processing.Engine.ML, DataSource: Sitecore.Processing.Engine.DataSources.DataExtraction.InteractionDataSource, Sitecore.Processing.Engine
 [Information] Registered Deferred Processing Task, Id: 1a0f5ca3-2118-4c43-a57d-2dcabce48a16, Worker: Sitecore.Processing.Engine.ML.Workers.MergeWorker, Sitecore.Processing.Engine.ML
