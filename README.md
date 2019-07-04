@@ -1,5 +1,5 @@
 # Sitecore Cortex and Machine Learning Demo
-Segmentation and clustering contacts by RFM values.
+Segmenting and clustering contacts by RFM values.
 Example of usage Sitecore Cortex with ML.Net.
 
 Contains 2 solutions:
@@ -19,7 +19,7 @@ Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://githu
 
 # How to populate xConnect with testing data #
 * Build solution.
-* Run Demo.Project.DemoDataExplorer.exe from project Demo.Project.DemoDataExplorer.
+* Run Demo.Project.DemoDataExplorer.exe from project [Demo.Project.DemoDataExplorer](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/DemoCortex/src/Project/DemoDataExplorer/code)
 ![Data Explorer](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/DataExplorer.jpg)
 * Copy your sitecore website root url to "API address"
 * Click "Browse" and select [Online Retail.xlsx ~500k records](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/Online_Retail.xlsx)
