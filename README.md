@@ -23,7 +23,7 @@ Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://githu
 ![Data Explorer](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/DataExplorer.jpg)
 * Copy your sitecore website root url to "API address"
 * Click "Browse" and select [Online Retail.xlsx](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/Online_Retail.xlsx) (~500k records)
-* Click "Upload file". Wait for finishing uploading process (in takes ~10 min). During process you can see logs in sitecore instance and new contacts appearance in Experience Profile:
+* Click "Upload file". Wait for finishing uploading process (it takes ~10 min). During process you can see logs in sitecore instance and new contacts appearance in Experience Profile:
 ```
 INFO  Excel import: 272 from 4339: CustomerID=15332
 ```
