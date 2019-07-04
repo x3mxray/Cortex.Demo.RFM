@@ -1,9 +1,11 @@
 # Sitecore Cortex and Machine Learning Demo
 Segmentation and clustering contacts by RFM values.
 Example of usage Sitecore Cortex with ML.Net.
+
 Contains 2 solutions:
 - [DemoCortex](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/DemoCortex)
 - [MLServer](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/MLServer)
+
 Full overview of demo located [here](https://www.brimit.com/blog/dive-sitecore-cortex-machine-learning-introduction)
 
 # How to Deploy #
