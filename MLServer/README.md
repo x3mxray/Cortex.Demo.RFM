@@ -52,7 +52,7 @@ RFM | Group | Recommendations
 332 | Very regular - Middle value | These are the best customers. You can try to sell them a new product or service. Send them special offers
 333 | VIP | These are the best customers. You can try to sell them a new product or service. Send them special offers
 
-# How to understand what type of contacts are in which cluster?
+# How to understand what type of contacts are in cluster?
 After model training and evaluating report **rfm_clusters_{datetime}.csv** will be created in solution folder. 
 It has format: **Cluster|R|F|M**. So you can easy identify what types of contacts are in each cluster regarding the table above.
 
