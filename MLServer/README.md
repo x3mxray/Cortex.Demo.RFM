@@ -8,7 +8,9 @@ Can be easily moved directly in Processing Engine if separate application for ML
 
 # What do RFM combinations mean?
 Each of R, F and M values is in a range from 1 to 3.
+
 ![RFM cube](https://www.brimit.com/~/media/images/Blog/CortexPart7-1.jpg)
+
 Each contact will be defined in the following groups depending on its actions (table with descriptions and recommendations for each combination, *small cubes from image above*):
 
 ### Leaving

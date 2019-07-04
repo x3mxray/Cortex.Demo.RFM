@@ -1,23 +1,20 @@
-LINKS
+# DemoCortex
+After project installation you can navigate to **/sitecore/system/Settings/Rules/Definitions/Elements**.
+There are two new folder with RFM-based and Cluster-based rule conditions.
 
-https://github.com/dotnet/docs/tree/master/docs/machine-learning
+![Rule conditions](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/rules.jpg)
 
-https://github.com/dotnet/machinelearning-samples
+After Cortex tasks execution you can navigate to **List Manager**.
+It contains two demo lists:
+- VIP customers (RFM rule based segmentation)
+- Cluster 1 (Cluster rule based segmentation)
 
-http://datareview.info/article/prognoziruem-ottok-klientov-bez-primeneniya-mashinnogo-obucheniya/
+![List manager](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/list.jpg)
 
+When you navigate to the http://sitecoreinstance.url/demo  of your website you will see demo page that has personalized renderings (for VIP customers **(RFM=333)**):
 
+![Usual customer](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/usual.jpg)
 
-OPTIONAL:
+You can copy any email address from *VIP cusomer* list, paste it in form inpup and click "Identify" button. You will see personalized rendering:
 
-Recency Frequency Monetary value (RFM) 
-
-https://hk.saowen.com/a/b3ee0c6178938d52f8b17c85ba8ee22e8f5d250c37bb6cd3098a9889e8101719
-
-
-
-Preparation
-
-https://towardsdatascience.com/find-your-best-customers-with-customer-segmentation-in-python-61d602f9eee6
-
-PDF proof http://cdn.intechopen.com/pdfs/13162/InTech-Data_mining_using_rfm_analysis.pdf
+![VIP customer](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/documentation/images/vip.jpg)

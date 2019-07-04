@@ -16,7 +16,7 @@ namespace MLServer.Helpers
 
             using (var file = File.CreateText(filePath))
             {
-                file.WriteLine("Clister,R,F,M");
+                file.WriteLine("Cluster,R,F,M");
                 foreach (var arr in list)
                 {
                     file.WriteLine($"{arr.Cluster},{arr.Data.R},{arr.Data.F},{arr.Data.M}");

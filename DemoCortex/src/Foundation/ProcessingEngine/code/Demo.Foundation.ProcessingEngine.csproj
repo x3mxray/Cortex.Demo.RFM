@@ -116,7 +116,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Content Include="App_Config\Include\Foundation\Foundation.ProcessingEngine.config">
+    <Content Include="App_Config\Include\Foundation\Foundation.Cortex.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Config\Processing\Demo\sc.XConnect.Client.DemoModels.xml">
