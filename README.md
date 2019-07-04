@@ -1,7 +1,10 @@
 # Sitecore Cortex and Machine Learning Demo
-Clustering contacts by RFM values.
+Segmentation and clustering contacts by RFM values.
 Example of usage Sitecore Cortex with ML.Net.
-[Full overview](https://www.brimit.com/blog/dive-sitecore-cortex-machine-learning-introduction)
+Contains 2 solutions:
+- [DemoCortex](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/DemoCortex)
+- [MLServer](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/MLServer)
+Full overview of demo located [here](https://www.brimit.com/blog/dive-sitecore-cortex-machine-learning-introduction)
 
 # How to Deploy #
 
@@ -25,11 +28,11 @@ INFO  Excel import: 272 from 4339: CustomerID=15332
 
 # How to run ML server #
 * Run [MLServer solution](https://github.com/x3mxray/Cortex.Demo.RFM/tree/master/MLServer) in IIS Express (or install it as IIS application)
-* Make sure that it is accessible with requestiong http://localhost:56399/api/rfm/test
+* Make sure that it is accessible by requesting http://localhost:56399/api/rfm/test
 * If you change localhost url to your own, make corresponding change in [Processing Engine -> sc.Processing.Services.MLNet.xml](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/xconnect/App_Data/jobs/continuous/ProcessingEngine/App_Data/Config/Sitecore/Demo/sc.Processing.Services.MLNet.xml)
 
 # How to run Cortex tasks #
-- POST request to http://{sitecoreInstance.url}/api/contactapi/RegisterTasks with POSTMAN
+- POST request to http://sitecoreInstance.url/api/contactapi/RegisterTasks with POSTMAN
 - Or change processing agent sleep period in [Processing Engine -> sc.Processing.Engine.DemoAgents.xml](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/xconnect/App_Data/jobs/continuous/ProcessingEngine/App_Data/Config/Sitecore/Demo/sc.Processing.Engine.DemoAgents.xml)
 - All processes execution takes ~10-15 minutes (~500k records). During process you can see logs in Processing Engine job:
 ```
@@ -56,3 +59,6 @@ INFO  Excel import: 272 from 4339: CustomerID=15332
 [Information] RFM info: email=demo113822270ea6464e93b69607c4606a11@gmail.com, R=3, F=3, M=3, Recency=343.147222222222, Frequency=172, Monetary=3237.54, CLUSTER=2
 [Information] TaskAgent Worker execution completed. Machine: BRIMIT-SBA-PC, Process: 26164, AgentId: 7, TaskId: b8784a8a-ac13-4d86-af86-676a6fe11bc1, TaskType: DistributedProcessing.
 ```
+
+# Feedback #
+If you are faced with any issues or have questions/suggestions you can contact me in sitecore slack channel [#cortexmachinelearning](https://sitecorechat.slack.com/messages/CD0BU3QBV/) @x3mxray
