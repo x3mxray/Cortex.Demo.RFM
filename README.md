@@ -10,6 +10,9 @@ Full overview of demo located [here](https://www.brimit.com/blog/dive-sitecore-c
 
 # How to Deploy #
 
+## Pre-requisites
+Sitecore 9.1.0 (for 9.1.1 and higher versions package references in project should be updated to corresponding versions)
+
 ## Sitecore
 Install the sitecore package [RFM Demo-1.0 (sitecore package).zip](https://github.com/x3mxray/Cortex.Demo.RFM/blob/master/install/RFM_Demo-1.0_(sitecore_package).zip)
 
