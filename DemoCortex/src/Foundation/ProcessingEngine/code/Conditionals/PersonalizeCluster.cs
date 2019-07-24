@@ -6,10 +6,8 @@ using Sitecore.Rules.Conditions;
 
 namespace Demo.Foundation.ProcessingEngine.Conditionals
 {
-    public class PersonalizeCluster<T> : StringOperatorCondition<T> where T : RuleContext
+    public class PersonalizeCluster<T> : IntegerComparisonCondition<T> where T : RuleContext
     {
-        public int Number { get; set; }
-
         protected override bool Execute(T ruleContext)
         {
             if (!Tracker.Current.IsActive || Tracker.Current.Contact == null) return false;
@@ -19,7 +17,7 @@ namespace Demo.Foundation.ProcessingEngine.Conditionals
 
             if (!(xConnectFacets.Facets[RfmContactFacet.DefaultFacetKey] is RfmContactFacet facet)) return false;
 
-            return facet.Cluster == Number;
+            return Compare(facet.Cluster);
         }
     }
 }
