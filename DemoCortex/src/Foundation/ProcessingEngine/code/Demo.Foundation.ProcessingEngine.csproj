@@ -33,6 +33,10 @@
   <Choose>
     <When Condition="'$(LocalReferences)' == 'true'">
       <ItemGroup>
+        <Reference Include="Sitecore.Analytics">
+          <HintPath>$(SitecorePath)\bin\Sitecore.Analytics.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
         <Reference Include="Sitecore.Analytics.Core">
           <HintPath>$(SitecorePath)\bin\Sitecore.Analytics.Core.dll</HintPath>
           <Private>False</Private>
@@ -41,20 +45,20 @@
           <HintPath>$(SitecorePath)\bin\Sitecore.Analytics.Model.dll</HintPath>
           <Private>False</Private>
         </Reference>
-        <Reference Include="Sitecore.Analytics">
-          <HintPath>$(SitecorePath)\bin\Sitecore.Analytics.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
         <Reference Include="Sitecore.Analytics.XConnect">
           <HintPath>$(SitecorePath)\bin\Sitecore.Analytics.XConnect.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.ContentSearch">
+          <HintPath>$(SitecorePath)\bin\Sitecore.ContentSearch.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="Sitecore.ContentSearch.Linq">
           <HintPath>$(SitecorePath)\bin\Sitecore.ContentSearch.Linq.dll</HintPath>
           <Private>False</Private>
         </Reference>
-        <Reference Include="Sitecore.ContentSearch">
-          <HintPath>$(SitecorePath)\bin\Sitecore.ContentSearch.dll</HintPath>
+        <Reference Include="Sitecore.ContentTesting.ML">
+          <HintPath>$(SitecorePath)\bin\Sitecore.ContentTesting.ML.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="Sitecore.ExperienceEditor">
@@ -63,6 +67,14 @@
         </Reference>
         <Reference Include="Sitecore.Framework.Conditions">
           <HintPath>$(SitecorePath)\bin\Sitecore.Framework.Conditions.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.Framework.Configuration.Extensions">
+          <HintPath>$(SitecorePath)\bin\Sitecore.Framework.Configuration.Extensions.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.Framework.Rules.Abstractions">
+          <HintPath>$(SitecorePath)\bin\Sitecore.Framework.Rules.Abstractions.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="Sitecore.Kernel">
@@ -85,33 +97,71 @@
           <HintPath>$(SitecorePath)\bin\Sitecore.Marketing.Taxonomy.dll</HintPath>
           <Private>False</Private>
         </Reference>
-        <Reference Include="Sitecore.Mvc">
-          <HintPath>$(SitecorePath)\bin\Sitecore.Mvc.dll</HintPath>
+        <Reference Include="Sitecore.Nexus.Licensing">
+          <HintPath>$(SitecorePath)\bin\Sitecore.Nexus.Licensing.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.Processing.Common">
+          <HintPath>$(SitecorePath)\bin\Sitecore.Processing.Common.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.Processing.Engine">
+          <HintPath>$(SitecorePath)\bin\Sitecore.Processing.Engine.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="Sitecore.Xdb.Configuration">
           <HintPath>$(SitecorePath)\bin\Sitecore.Xdb.Configuration.dll</HintPath>
           <Private>False</Private>
         </Reference>
+        <Reference Include="Sitecore.XConnect">
+          <HintPath>$(SitecorePath)\bin\Sitecore.XConnect.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Client">
+          <HintPath>$(SitecorePath)\bin\Sitecore.XConnect.Client.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Client.Configuration">
+          <HintPath>$(SitecorePath)\bin\Sitecore.XConnect.Client.Configuration.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Collection.Model">
+          <HintPath>$(SitecorePath)\bin\Sitecore.XConnect.Collection.Model.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Sitecore.XConnect.Segmentation.Predicates.Model">
+          <HintPath>$(SitecorePath)\bin\Sitecore.XConnect.Segmentation.Predicates.Model.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="Sitecore.Analytics.Core" Version="[12.0.0]" />
-        <PackageReference Include="Sitecore.Analytics.Model" Version="[12.0.0]" />
-        <PackageReference Include="Sitecore.Analytics" Version="[12.0.0]" />
-        <PackageReference Include="Sitecore.Analytics.XConnect" Version="[12.0.0]" />
-        <PackageReference Include="Sitecore.ContentSearch.Linq" Version="[4.0.0]" />
-        <PackageReference Include="Sitecore.ContentSearch" Version="[4.0.0]" />
-        <PackageReference Include="Sitecore.ExperienceEditor" Version="[5.0.0]" />
+        <PackageReference Include="Sitecore.Analytics" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Analytics.Core" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Analytics.Model" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Analytics.XConnect" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.ContentSearch" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.ContentSearch.Linq" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.ContentTesting.ML" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.ExperienceEditor" Version="[9.1.0]" />
         <PackageReference Include="Sitecore.Framework.Conditions" Version="[3.1.0]" />
-        <PackageReference Include="Sitecore.Kernel" Version="[12.0.0]" />
-        <PackageReference Include="Sitecore.Marketing" Version="[13.0.0]" />
-        <PackageReference Include="Sitecore.Marketing.Core" Version="[13.0.0]" />
-        <PackageReference Include="Sitecore.Marketing.Search" Version="[13.1.0]" />
-        <PackageReference Include="Sitecore.Marketing.Taxonomy" Version="[13.0.0]" />
-        <PackageReference Include="Sitecore.Mvc" Version="[3.0.0]" />
-        <PackageReference Include="Sitecore.Xdb.Configuration" Version="[12.0.0]" />
+        <PackageReference Include="Sitecore.Framework.Configuration.Extensions" Version="[5.2.0]" />
+        <PackageReference Include="Sitecore.Framework.Rules.Abstractions" Version="[3.2.0]" />
+        <PackageReference Include="Sitecore.Kernel" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Marketing" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Marketing.Core" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Marketing.Search" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Marketing.Taxonomy" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Nexus.Licensing" Version="[9.0.171002]" />
+        <PackageReference Include="Sitecore.Processing.Common" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Processing.Engine" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.Xdb.Configuration" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.XConnect" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.XConnect.Client" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.XConnect.Client.Configuration" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.XConnect.Collection.Model" Version="[9.1.0]" />
+        <PackageReference Include="Sitecore.XConnect.Segmentation.Predicates.Model" Version="[9.1.0]" />
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -178,38 +228,23 @@
     <PackageReference Include="EPPlus">
       <Version>4.5.3.2</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration">
+      <Version>2.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <Version>2.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder">
+      <Version>2.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>2.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <Version>2.1.1</Version>
+    </PackageReference>
     <PackageReference Include="RestSharp">
       <Version>106.6.9</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.ContentTesting.ML">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.Framework.Rules.Abstractions">
-      <Version>3.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.Kernel">
-      <Version>12.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.Processing.Common">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.Processing.Engine">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.XConnect">
-      <Version>2.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.XConnect.Client">
-      <Version>2.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.XConnect.Client.Configuration">
-      <Version>2.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.XConnect.Collection.Model">
-      <Version>2.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Sitecore.XConnect.Segmentation.Predicates.Model">
-      <Version>5.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
